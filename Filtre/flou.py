@@ -1,17 +1,14 @@
 import cv2
 import numpy
 
-def grey(image):
+
+def flou(image):
     try:
         img = cv2.imread(image)
-
-        gre= cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        cv2.imshow("Gaussian Smoothing",numpy.hstack((gre, gray)))
+        dst = cv2.GaussianBlur(img,(51,51),51)
+        cv2.imshow("Gaussian Smoothing",numpy.hstack((img, dst)))
     except Exception as e:
-        print(f"L'action n'as pas pu etre effectuer {e}")
+        print(f"L'image n'as pas pu etre effectuer{e}")
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-
 
