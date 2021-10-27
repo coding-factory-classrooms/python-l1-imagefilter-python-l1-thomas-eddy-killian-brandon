@@ -7,5 +7,6 @@ def noir_blanc(img):
         cv2.imshow('Gray image', gris)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
+        return gris
     except cv2.error:
         print("Ce n'est pas une image")

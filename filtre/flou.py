@@ -8,5 +8,6 @@ def floutage(img):
         cv2.imshow('Gaussian Smoothing', numpy.hstack((image, dst)))
         cv2.waitKey(0)
         cv2.destroyAllWindows()
+        return dst
     except cv2.error:
         print("Ce n'est pas une image")

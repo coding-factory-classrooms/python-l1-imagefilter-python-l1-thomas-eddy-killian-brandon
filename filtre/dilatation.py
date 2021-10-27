@@ -8,5 +8,6 @@ def dilater(img):
         cv2.imshow('Dilatation', numpy.hstack((image, dst)))
         cv2.waitKey(0)
         cv2.destroyAllWindows()
+        return dst
     except cv2.error:
         print("Ce n'est pas une image")
