@@ -1,8 +1,8 @@
-import filtre.flou
-import filtre.gris
-import filtre.dilatation
+import filtre.filtres
 
-filtre.dilatation.dilater("image/image1.jpeg")
-filtre.flou.floutage("image/image1.jpeg")
-filtre.gris.noir_blanc("image/image1.jpeg")
+
+images = ["image/image0.jpeg", "image/image1.jpeg", "image/image2.jpeg"]
+
+for i in images:
+    filtre.filtres.applique_filtres(i)
 
