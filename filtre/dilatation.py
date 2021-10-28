@@ -2,6 +2,13 @@ import cv2
 import numpy
 
 def dilater(img):
+
+    """
+    dilater transforme l'image en la dilatant.
+    :param img: str - chemin d'accès vers l'image.
+    :return: l'image dilatée.
+    """
+
     try:
         image = cv2.imread(img, 1)
         dst = cv2.dilate(image,numpy.ones((5,5)), iterations=1)
