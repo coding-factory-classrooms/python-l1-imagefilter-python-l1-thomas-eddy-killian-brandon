@@ -3,7 +3,7 @@ import filtre.gris
 import filtre.flou
 import filtre.dilatation
 
-images = ["image/image0.jpeg", "image/image1.jpeg", "image/image2.jpeg"]
+images = ["image/image0.jpg", "image/image1.jpg", "image/image2.jpg"]
 
 
 def multi_filtre(arg):
