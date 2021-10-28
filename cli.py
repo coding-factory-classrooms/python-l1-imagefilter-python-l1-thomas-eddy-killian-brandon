@@ -1,4 +1,3 @@
-import sys
 import filtre.filtres
 import filtre.gris, filtre.flou, filtre.dilatation
 
