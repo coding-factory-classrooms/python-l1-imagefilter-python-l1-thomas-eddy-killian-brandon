@@ -2,10 +2,12 @@ import cv2
 import numpy
 
 
-def flou(image):
+
+def flou(image,x):
+    f = int(x)
     try:
         img = cv2.imread(image)
-        dst = cv2.GaussianBlur(img,(51,51),51)
+        dst = cv2.GaussianBlur(img,(f,f),f)
         cv2.imshow("Gaussian Smoothing",numpy.hstack((img, dst)))
     except Exception as e:
         print(f"L'image n'as pas pu etre effectuer{e}")
