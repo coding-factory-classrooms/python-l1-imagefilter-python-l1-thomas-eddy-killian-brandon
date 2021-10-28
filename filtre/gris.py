@@ -14,7 +14,6 @@ def noir_blanc(img):
     try:
         image = cv2.imread(img)
         log.log("Récupération de l'image")
-        time.sleep(10)
         gris = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         cv2.imshow('Changement Couleur Gris', gris)
         for j in range(3):
