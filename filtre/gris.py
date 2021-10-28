@@ -1,5 +1,6 @@
 import cv2
 
+
 def noir_blanc(img):
 
     """

@@ -1,9 +1,18 @@
 import filtre.filtres
-import filtre.gris, filtre.flou, filtre.dilatation
+import filtre.gris
+import filtre.flou
+import filtre.dilatation
 
 images = ["image/image0.jpeg", "image/image1.jpeg", "image/image2.jpeg"]
 
-def f(arg):
+
+def multi_filtre(arg):
+
+    """
+    multi_filtre prend en paramètre les filtres choisis.
+    :param arg: filtres à utiliser.
+    """
+
     for i in images:
         if arg == "gris":
             filtre.gris.noir_blanc(i)
@@ -12,11 +21,10 @@ def f(arg):
         elif arg == "dilate":
             filtre.dilatation.dilater(i)
         elif arg == "gris|flou":
-            filtre.filtres.applique_filtres(i, "gris", "flou")
+            filtre.filtres.applique_filtres(i, arg)
         elif arg == "flou|dilate":
-            filtre.filtres.applique_filtres(i, "flou", "dilate")
+            filtre.filtres.applique_filtres(i, arg)
         elif arg == "gris|dilate":
-            filtre.filtres.applique_filtres(i, "gris", "dilate")
+            filtre.filtres.applique_filtres(i, arg)
         elif arg == "gris|flou|dilate":
-            filtre.filtres.applique_filtres(i, "gris", "flou", "dilate")
-
+            filtre.filtres.applique_filtres(i, arg)
