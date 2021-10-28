@@ -2,7 +2,7 @@ import cv2
 import numpy
 
 
-def flou(image):
+def floutage(image):
     try:
         img = cv2.imread(image)
         dst = cv2.GaussianBlur(img,(51,51),51)
