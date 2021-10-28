@@ -1,8 +1,10 @@
-import filtre.filtres
+import cli
+import sys
 
+args = sys.argv
 
-images = ["image/image0.jpeg", "image/image1.jpeg", "image/image2.jpeg"]
-
-for i in images:
-    filtre.filtres.applique_filtres(i)
+if args[1] == "--filters":
+    cli.f(args[2])
+else:
+    print("IncorrectArgument : Your argument is trash")
 
