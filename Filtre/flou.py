@@ -8,7 +8,7 @@ def flou(image,x):
     try:
         img = cv2.imread(image)
         dst = cv2.GaussianBlur(img,(f,f),f)
-        cv2.imshow("Gaussian Smoothing",numpy.hstack((img, dst)))
+        return dst
     except Exception as e:
         print(f"L'image n'as pas pu etre effectuer{e}")
     cv2.waitKey(0)
