@@ -1,5 +1,5 @@
-from Filtre.grey import flou
-from Filtre.flou import grey
+from Filtre.gray import grey
+from Filtre.flou import flou
 import sys
 
 args = sys.argv

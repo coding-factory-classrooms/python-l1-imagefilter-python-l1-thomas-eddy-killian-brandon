@@ -1,4 +1,3 @@
-
 from Filtre.flou import flou
 from Filtre.gray import grey
 import sys
@@ -33,6 +32,4 @@ for i in range(0, len(args)):
             elif did == 'grey':
                 for ti in range(0, len(dir)):
                     grey(f'image/{dir[ti]}')
-
-
 
