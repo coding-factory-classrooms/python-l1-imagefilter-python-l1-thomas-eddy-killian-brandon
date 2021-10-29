@@ -21,8 +21,9 @@ for i in range(0,len(strB)):
     strD = strB[i].split(":")
     tab_arg.append(strD)
 
-'''
-On crée une boucle les arguments pour vérifier si la commande est organisée comme --filter "filtre:valeur|filtre"
+''' 
+On crée une boucle les arguments pour vérifier si la commande est organisée 
+comme --filter "filtre:valeur|filtre"
 '''
 
 for i in range(0,len(args)):
@@ -30,18 +31,14 @@ for i in range(0,len(args)):
 
     if arg == '--filter':
 
-       '''
-       On regarde si il n'y a qu'un seul filtre ajouté.
-       '''
+       # On regarde si il n'y a qu'un seul filtre ajouté.
 
         if len(tab_arg) == 1:
             for pi in range(0, len(tab_arg)):
                 valeur_tab = tab_arg[pi]
                 did = valeur_tab[0]
 
-                '''
-                On regarde si le filtre est : flou, grey ou dilater.
-                '''
+                ''' On regarde si le filtre est : flou, grey ou dilater. '''
 
                 if did == 'flou':
                     for ti in range(0, len(dir)):
@@ -58,9 +55,7 @@ for i in range(0,len(args)):
                         dst = dilater(f'image/{dir[ti]}', x)
                         cv2.imwrite(f'image1/{dir[ti]}', dst)
 
-        '''
-        On regarde si deux filtres sont ajoutés.
-        '''
+        ''' On regarde si deux filtres sont ajoutés. '''
 
         if len(tab_arg) == 2:
 
@@ -69,9 +64,7 @@ for i in range(0,len(args)):
             did = valeur_tab[0]
             valeur_tab2.append(did)
 
-            '''
-            On regarde quel est le filtre qui n'est pas ajouté.
-            '''
+            ''' On regarde quel est le filtre qui n'est pas ajouté. '''
 
             if 'grey' not in valeur_tab2:                       # Filtre flou + dilater
                 for ti in range(0, len(dir)):
@@ -99,9 +92,7 @@ for i in range(0,len(args)):
                     dst = flou(f'image1/{dir[ti]}', x)
                     cv2.imwrite(f'image1/{dir[ti]}', dst)
 
-        '''
-        On regarde si tous les filtres sont ajoutés.
-        '''
+        ''' On regarde si tous les filtres sont ajoutés. '''
 
         if len(tab_arg) == 3:
             valeur_tab = tab_arg[0]
@@ -113,9 +104,7 @@ for i in range(0,len(args)):
             valeur_tab3.append(didi)
             print(valeur_tab3)
 
-        '''
-        On regarde si les filtres sont bien : flou, grey et dilater.
-        '''
+        ''' On regarde si les filtres sont bien : flou, grey et dilater. '''
 
         if 'dilater' in valeur_tab3 and 'flou' in valeur_tab3 and 'grey' in valeur_tab3:
             for ti in range(0, len(dir)):
