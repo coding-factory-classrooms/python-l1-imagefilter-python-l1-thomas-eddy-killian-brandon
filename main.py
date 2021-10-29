@@ -3,6 +3,7 @@ from Filtre.gray import grey
 import sys
 import os
 import cv2
+import glob
 import numpy
 import glob
 from Filtre.dilatation import dilater
@@ -104,6 +105,35 @@ for i in range(0,len(args)):
 
 
 
+
+        if len(tab_arg) == 3:
+            valeur_tab = tab_arg[0]
+            valeur_tab2 = tab_arg[1]
+            valeur_tab3 = tab_arg[2]
+            did = valeur_tab[0]
+            didi = valeur_tab2[0]
+            valeur_tab3.append(did)
+            valeur_tab3.append(didi)
+            print(valeur_tab3)
+
+        if 'dilater' in valeur_tab3 and 'flou' in valeur_tab3 and 'grey' in valeur_tab3:
+            for ti in range(0, len(dir)):
+                if dir[1] == ".DS_Store":
+                    file= glob.glob('image/.DS_Store')
+                    for s in file:
+                        os.remove(s)
+
+                print(dir)
+                dst = grey(f'image/{dir[ti]}')
+                cv2.imwrite(f'image1/{dir[ti]}', dst)
+            for ti in range(0, len(dir)):
+                x = valeur_tab[1]
+                dst = flou(f'image1/{dir[ti]}', x)
+                cv2.imwrite(f'image1/{dir[ti]}', dst)
+            for ti in range(0, len(dir)):
+                x = valeur_tab[1]
+                dst = dilater(f'image1/{dir[ti]}', x)
+                cv2.imwrite(f'image1/{dir[ti]}', dst)
 
 
 
