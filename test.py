@@ -27,12 +27,16 @@ for i in range(0, len(args)):
             did = valeur_tab[0]
             if did == '-flou':
                 for ti in range(0, len(dir)):
-                    print('tt')
                     x = valeur_tab[1]
                     flou(f'image/{dir[ti]}', x)
             elif did == 'grey':
                 for ti in range(0, len(dir)):
                     grey(f'image/{dir[ti]}')
+            elif did == 'dilater':
+                for ti in range(0, len(dir)):
+                    x = valeur_tab[1]
+                    dilater(f'image/{dir[ti]}', x)
+
 
 
 
