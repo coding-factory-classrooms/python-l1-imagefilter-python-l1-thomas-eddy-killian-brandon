@@ -12,19 +12,37 @@ dir = os.listdir("image")
 strB =args[2].split("|")
 tab_arg=[]
 
+'''
+On crée une boucle pour séparer chaque filtre de sa valeur avec la fonction split()
+puis on ajoute le tableau obtenu dans le tableau tab_arg.
+'''
+
 for i in range(0,len(strB)):
     strD = strB[i].split(":")
     tab_arg.append(strD)
 
+'''
+On crée une boucle les arguments pour vérifier si la commande est organisée comme --filter "filtre:valeur|filtre"
+'''
 
 for i in range(0,len(args)):
     arg = args[i]
 
     if arg == '--filter':
+
+       '''
+       On regarde si il n'y a qu'un seul filtre ajouté.
+       '''
+
         if len(tab_arg) == 1:
             for pi in range(0, len(tab_arg)):
                 valeur_tab = tab_arg[pi]
                 did = valeur_tab[0]
+
+                '''
+                On regarde si le filtre est : flou, grey ou dilater.
+                '''
+
                 if did == 'flou':
                     for ti in range(0, len(dir)):
                         x = valeur_tab[1]
@@ -40,6 +58,10 @@ for i in range(0,len(args)):
                         dst = dilater(f'image/{dir[ti]}', x)
                         cv2.imwrite(f'image1/{dir[ti]}', dst)
 
+        '''
+        On regarde si deux filtres sont ajoutés.
+        '''
+
         if len(tab_arg) == 2:
 
             valeur_tab = tab_arg[0]
@@ -47,7 +69,11 @@ for i in range(0,len(args)):
             did = valeur_tab[0]
             valeur_tab2.append(did)
 
-            if 'grey' not in valeur_tab2:
+            '''
+            On regarde quel est le filtre qui n'est pas ajouté.
+            '''
+
+            if 'grey' not in valeur_tab2:                       # Filtre flou + dilater
                 for ti in range(0, len(dir)):
                     x = valeur_tab[1]
                     dst = flou(f'image/{dir[ti]}', x)
@@ -56,7 +82,7 @@ for i in range(0,len(args)):
                     x = valeur_tab2[1]
                     dst = dilater(f'image1/{dir[ti]}', x)
                     cv2.imwrite(f'image1/{dir[ti]}', dst)
-            if 'flou' not in valeur_tab2:
+            if 'flou' not in valeur_tab2:                       # Filtre grey + dilater
                 for ti in range(0, len(dir)):
                     dst = grey(f'image/{dir[ti]}')
                     cv2.imwrite(f'image1/{dir[ti]}', dst)
@@ -64,7 +90,7 @@ for i in range(0,len(args)):
                     x = valeur_tab[1]
                     dst = dilater(f'image1/{dir[ti]}', x)
                     cv2.imwrite(f'image1/{dir[ti]}', dst)
-            if 'dilater' not in valeur_tab2:
+            if 'dilater' not in valeur_tab2:                    # Filtre grey + flou
                 for ti in range(0, len(dir)):
                     dst = grey(f'image/{dir[ti]}')
                     cv2.imwrite(f'image1/{dir[ti]}', dst)
@@ -72,6 +98,10 @@ for i in range(0,len(args)):
                     x = valeur_tab[1]
                     dst = flou(f'image1/{dir[ti]}', x)
                     cv2.imwrite(f'image1/{dir[ti]}', dst)
+
+        '''
+        On regarde si tous les filtres sont ajoutés.
+        '''
 
         if len(tab_arg) == 3:
             valeur_tab = tab_arg[0]
@@ -82,6 +112,10 @@ for i in range(0,len(args)):
             valeur_tab3.append(did)
             valeur_tab3.append(didi)
             print(valeur_tab3)
+
+        '''
+        On regarde si les filtres sont bien : flou, grey et dilater.
+        '''
 
         if 'dilater' in valeur_tab3 and 'flou' in valeur_tab3 and 'grey' in valeur_tab3:
             for ti in range(0, len(dir)):
